@@ -1,0 +1,15 @@
+html {
+  min-height: 100%;
+  position: relative;
+}
+body {
+  margin-bottom: 60px; /* フッターのheight */
+}
+.footer {
+  background-color: #f8f9fa;
+  bottom: 0;
+  height: 60px;
+  padding: .5rem 1rem;
+  position: absolute; 
+  width: 100%;
+}
