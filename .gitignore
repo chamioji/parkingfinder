@@ -1,5 +1,9 @@
 # dependencies
 /node_modules
 
+# sqlite database
+*.sqlite3
+*.sqlite3-journal
+
 # misc
 .DS_Store
