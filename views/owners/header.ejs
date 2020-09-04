@@ -1,6 +1,8 @@
 <header>
   <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="/owners"><%= title %></a>
-    <a href="/owners">ログアウト</a>
+    <% if (user) { %>
+      <a href="/owners/logout">ログアウト</a>
+    <% } %>
   </nav>
 </header>
