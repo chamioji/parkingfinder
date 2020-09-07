@@ -23,6 +23,19 @@ router.get('/', checkLogin, (req, res, next) => {
   });
 });
 
+router.get('/show/:id', checkLogin, (req, res, next) => {
+  db.Parking.findOne({
+    where: { id: req.params.id}
+  }).then(parkings => {
+    var data = {
+      title: 'Parking Finder',
+      user: req.user,
+      content: parkings
+    };
+    res.render('owners/show', data);
+  });
+});
+
 router.get('/login', (req, res) => {
   var data = {
     title: 'Parking Finder',

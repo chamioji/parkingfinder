@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title><%= title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="/stylesheets/stickyfooter.css" rel="stylesheet"/>
+    <link href="/stylesheets/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <%- include('header', {title: title}) %>
+
+    <div class="container-fluid pt-5 pb-5">
+
+      <div class="row">
+        <div class="col-12">
+          <h2>パーキング詳細</h1>
+          <hr>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <a href="/" class="btn btn-primary mt-1 mb-1">編集</a>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-12 col-sm-10 col-lg-8">
+          <table class="table table-bordered">
+            <tr class="d-flex">
+              <td class="col-4 col-sm-3 col-lg-2 d-flex align-items-center">ステータス</td>
+              <td class="col-8 col-sm-9 col-lg-10 d-flex justify-content-center"><%= content.status %></td>
+            </tr>
+            <tr class="d-flex">
+              <td class="col-4 col-sm-3 col-lg-2 d-flex align-items-center">パーキング名</td>
+              <td class="col-8 col-sm-9 col-lg-10 d-flex justify-content-center"><%= content.name %></td>
+            </tr>
+            <tr class="d-flex">
+              <td class="col-4 col-sm-3 col-lg-2 d-flex align-items-center">郵便番号</td>
+              <td class="col-8 col-sm-9 col-lg-10 d-flex justify-content-center"><%= content.postcode %></td>
+            </tr>
+            <tr class="d-flex">
+              <td class="col-4 col-sm-3 col-lg-2 d-flex align-items-center">住所</td>
+              <td class="col-8 col-sm-9 col-lg-10 d-flex justify-content-center"><%= content.address %></td>
+            </tr>
+            <tr class="d-flex">
+              <td class="col-4 col-sm-3 col-lg-2 d-flex align-items-center">台数</td>
+              <td class="col-8 col-sm-9 col-lg-10 d-flex justify-content-center"><%= content.capacity %></td>
+            </tr>
+            <tr class="d-flex">
+              <td class="col-4 col-sm-3 col-lg-2 d-flex align-items-center">料金</td>
+              <td class="col-8 col-sm-9 col-lg-10 d-flex justify-content-center"><%- content.price %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <%- include('footer') %>
+
+  </body>
+
+</html>
