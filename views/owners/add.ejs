@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title><%= title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="/stylesheets/stickyfooter.css" rel="stylesheet"/>
+    <link href="/stylesheets/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <%- include('header', {title: title}) %>
+
+    <div class="container-fluid pt-5 pb-5">
+
+      <div class="row">
+        <div class="col-12">
+          <h2>パーキング作成</h1>
+          <hr>
+        </div>
+      </div>
+
+      <form method="post" action="/owners/add">
+
+        <div class="row justify-content-center">
+          <div class="col-12 col-sm-10 col-lg-8">
+            <table class="table table-bordered">
+                <tr class="d-flex">
+                  <td class="col-4 col-sm-3 col-lg-2 d-flex align-items-center">ステータス</td>
+                  <td class="col-8 col-sm-9 col-lg-10 d-flex justify-content-center">
+                    <div class="form-check">
+                      <input type="radio" name="status" id="statusRadioTrue" value="true" checked>
+                      <label class="form-check-label" for="statusRadioTrue">表示</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="radio" name="status" id="statusRadioFalse" value="false">
+                      <label class="form-check-label" for="statusRadioFalse">非表示</label>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="d-flex">
+                  <td class="col-4 col-sm-3 col-lg-2 d-flex align-items-center">パーキング名</td>
+                  <td class="col-8 col-sm-9 col-lg-10 d-flex align-items-center justify-content-center">
+                    <label for="name" class="sr-only">パーキング名</label>
+                    <input type="text" name="name" id="name" placeholder="パーキング名" required="" autofocus="" class="form-control">
+                  </td>
+                </tr>
+                <tr class="d-flex">
+                  <td class="col-4 col-sm-3 col-lg-2 d-flex align-items-center">郵便番号</td>
+                  <td class="col-8 col-sm-9 col-lg-10 d-flex align-items-center justify-content-center">
+                    <label for="postcode" class="sr-only">郵便番号</label>
+                    <input type="number" name="postcode" id="postcode" placeholder="郵便番号" required="" class="form-control">
+                  </td>
+                </tr>
+                <tr class="d-flex">
+                  <td class="col-4 col-sm-3 col-lg-2 d-flex align-items-center">住所</td>
+                  <td class="col-8 col-sm-9 col-lg-10 d-flex align-items-center justify-content-center">
+                    <label for="address" class="sr-only">住所</label>
+                    <input type="text" name="address" id="address" placeholder="住所" required="" class="form-control">
+                  </td>
+                </tr>
+                <tr class="d-flex">
+                  <td class="col-4 col-sm-3 col-lg-2 d-flex align-items-center">台数</td>
+                  <td class="col-8 col-sm-9 col-lg-10 d-flex align-items-center justify-content-center">
+                    <label for="capacity" class="sr-only">台数</label>
+                    <input type="number" name="capacity" id="capacity" placeholder="台数" required="" class="form-control">
+                  </td>
+                </tr>
+                <tr style="height: 280px;" class="d-flex">
+                  <td class="col-4 col-sm-3 col-lg-2 d-flex align-items-center">料金</td>
+                  <td class="col-8 col-sm-9 col-lg-10 d-flex align-items-center justify-content-center">
+                    <label for="price" class="sr-only">料金</label>
+                    <textarea name="price" id="price" placeholder="料金" required="" rows="10" class="form-control"></textarea>
+                  </td>
+                </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-12 col-sm-6 col-lg-4">
+            <input type="submit" value="作成" class="btn btn-success btn-block">
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+
+    <%- include('footer') %>
+
+  </body>
+
+</html>

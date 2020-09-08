@@ -26,23 +26,46 @@ router.get('/', checkLogin, (req, res, next) => {
 
 router.get('/show/:id', checkLogin, (req, res, next) => {
   db.Parking.findByPk(req.params.id)
-    .then(parkings => {
+    .then(parking => {
       var data = {
         title: 'Parking Finder',
         user: req.user,
-        content: parkings
+        content: parking
       };
       res.render('owners/show', data);
     });
 });
 
+router.get('/add', checkLogin, (req, res, next) => {
+  var data = {
+    title: 'Parking Finder',
+    user: req.user
+  };
+  res.render('owners/add', data);
+});
+
+router.post('/add', checkLogin, (req, res, next) => {
+  db.Parking.create({
+    ownerId: req.user.id,
+    status: req.body.status,
+    name: req.body.name,
+    postcode: req.body.postcode,
+    address: req.body.address,
+    capacity: req.body.capacity,
+    price: req.body.price
+  })
+    .then(parking => {
+      res.redirect('/owners/show/' + parking.id);
+    });
+});
+
 router.get('/edit/:id', checkLogin, (req, res, next) => {
   db.Parking.findByPk(req.params.id)
-    .then(parkings => {
+    .then(parking => {
       var data = {
         title: 'Parking Finder',
         user: req.user,
-        form: parkings,
+        form: parking,
       };
       res.render('owners/edit', data);
     });
