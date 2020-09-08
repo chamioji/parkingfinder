@@ -23,40 +23,46 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-12">
-          <a href="/" class="btn btn-primary mt-1 mb-1">編集</a>
-        </div>
-      </div>
-
       <div class="row justify-content-center">
         <div class="col-12 col-sm-10 col-lg-8">
           <table class="table table-bordered">
             <tr class="d-flex">
               <td class="col-4 col-sm-3 col-lg-2 d-flex align-items-center">ステータス</td>
-              <td class="col-8 col-sm-9 col-lg-10 d-flex justify-content-center"><%= content.status %></td>
+              <td class="col-8 col-sm-9 col-lg-10 d-flex align-items-center justify-content-center">
+                <% if (content.status == true) { %>
+                  表示
+                <% } else { %>
+                  非表示
+                <% } %>
+              </td>
             </tr>
             <tr class="d-flex">
               <td class="col-4 col-sm-3 col-lg-2 d-flex align-items-center">パーキング名</td>
-              <td class="col-8 col-sm-9 col-lg-10 d-flex justify-content-center"><%= content.name %></td>
+              <td class="col-8 col-sm-9 col-lg-10 d-flex align-items-center justify-content-center"><%= content.name %></td>
             </tr>
             <tr class="d-flex">
               <td class="col-4 col-sm-3 col-lg-2 d-flex align-items-center">郵便番号</td>
-              <td class="col-8 col-sm-9 col-lg-10 d-flex justify-content-center"><%= content.postcode %></td>
+              <td class="col-8 col-sm-9 col-lg-10 d-flex align-items-center justify-content-center"><%= content.postcode %></td>
             </tr>
             <tr class="d-flex">
               <td class="col-4 col-sm-3 col-lg-2 d-flex align-items-center">住所</td>
-              <td class="col-8 col-sm-9 col-lg-10 d-flex justify-content-center"><%= content.address %></td>
+              <td class="col-8 col-sm-9 col-lg-10 d-flex align-items-center justify-content-center"><%= content.address %></td>
             </tr>
             <tr class="d-flex">
               <td class="col-4 col-sm-3 col-lg-2 d-flex align-items-center">台数</td>
-              <td class="col-8 col-sm-9 col-lg-10 d-flex justify-content-center"><%= content.capacity %></td>
+              <td class="col-8 col-sm-9 col-lg-10 d-flex align-items-center justify-content-center"><%= content.capacity %></td>
             </tr>
-            <tr class="d-flex">
+            <tr style="height: 280px;" class="d-flex">
               <td class="col-4 col-sm-3 col-lg-2 d-flex align-items-center">料金</td>
-              <td class="col-8 col-sm-9 col-lg-10 d-flex justify-content-center"><%- content.price %></td>
+              <td style="white-space: pre-wrap;" class="col-8 col-sm-9 col-lg-10 d-flex align-items-center justify-content-center"><%= content.price %></td>
             </tr>
           </table>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-12 col-sm-6 col-lg-4">
+          <a href="/owners/edit/<%= content.id %>" class="btn btn-primary btn-block">編集</a>
         </div>
       </div>
 
