@@ -85,6 +85,14 @@ router.post('/edit/:id', checkLogin, (req, res, next) => {
     });
 });
 
+router.post('/delete', checkLogin, (req, res, next) => {
+  db.Parking.findByPk(req.body.id)
+    .then(parking => {
+      parking.destroy();
+      res.redirect('/owners');
+    });
+});
+
 router.get('/login', (req, res) => {
   var data = {
     title: 'Parking Finder',
